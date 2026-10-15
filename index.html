@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظمة GROW التطوعية | منصة الشروحات الطلابية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        growDark: '#0f172a',
+                        growCard: '#1e293b',
+                        growAccent: '#10b981', // لون أخضر عصري يرمز للنمو (GROW)
+                        growAccentHover: '#059669',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-growAccent selection:text-white">
+
+    <!-- نافذة منبثقة مخصصة للإشعارات (بديل الـ Alert) -->
+    <div id="toast" class="fixed bottom-5 left-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-growCard border border-growAccent text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-growAccent text-xl"></i>
+        <span id="toast-message" class="font-medium">رسالة تنبيه</span>
+    </div>
+
+    <!-- رأس الصفحة (Navbar) -->
+    <header class="sticky top-0 z-40 glass-effect border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-growAccent to-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-black text-2xl">
+                    G
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-white">GROW</span>
+                    <span class="block text-xs text-emerald-400 font-semibold tracking-widest">منظمة طلابية تطوعية</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#hero" class="hover:text-emerald-400 transition-colors">الرئيسية</a>
+                <a href="#courses" class="hover:text-emerald-400 transition-colors">المواد الدراسية</a>
+                <a href="#about" class="hover:text-emerald-400 transition-colors">عن المنظمة</a>
+                <a href="#join" class="hover:text-emerald-400 transition-colors">انضم لفريقنا</a>
+            </nav>
+            <div>
+                <a href="#courses" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5">
+                    تصفح الشروحات
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <section id="hero" class="relative overflow-hidden pt-20 pb-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-seedling"></i>
+                منصة GROW التعليمية التطوعية لطلاب الهندسة
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+                نصنع المعرفة معاً، <br>ونبني مستقبل الهندسة <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">خطوة بخطوة</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 mb-10 font-medium">
+                مبادرة طلابية تطوعية متكاملة تقدم شروحات مجانية مبسطة، ومساندة أكاديمية شاملة لمواد العلوم الهندسية الأساسية بإشراف نخبة من زملائك المتميزين.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#courses" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-xl shadow-emerald-500/20 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-book-open"></i>
+                    استكشف المواد الدراسية
+                </a>
+                <a href="#about" class="glass-effect hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-info-circle text-emerald-400"></i>
+                    تعرف على GROW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المواد الهندسية (Courses Section) -->
+    <section id="courses" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">المواد الهندسية المتاحة</h2>
+                <p class="text-slate-400 font-medium max-w-xl mx-auto">اختر المادة الدراسية للوصول إلى الشروحات المجانية، المحاضرات المرئية، والملخصات المعتمدة.</p>
+            </div>
+
+            <!-- شبكة المواد (Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- مادة: فيزياء 1 -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-111</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-atom text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">فيزياء 1 (Physics I)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">ميكانيكا الكلاسيكية، قوانين نيوتن، الحركة في خط مستقيم، الشغل والطاقة.</p>
+                    </div>
+                    <button onclick="openCourseModal('فيزياء 1', 'ES-111', 'ميكانيكا الكلاسيكية، قوانين نيوتن، وحفظ الطاقات')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- مادة: فيزياء 2 -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-112</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-bolt text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">فيزياء 2 (Physics II)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">الكهرومغناطيسية، قانون كولوم، المجالات الكهربائية، الدوائر الكهربائية البسيطة.</p>
+                    </div>
+                    <button onclick="openCourseModal('فيزياء 2', 'ES-112', 'الكهرومغناطيسية، المجالات الكهربائية، والمغناطيسية')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- مادة: كيمياء -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-146</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-flask text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">كيمياء هندسية (Engineering Chemistry)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">التفاعلات الكيميائية، الروابط، الحسابات الكيميائية، وخصائص المواد الهندسية.</p>
+                    </div>
+                    <button onclick="openCourseModal('كيمياء هندسية', 'ES-146', 'الروابط الكيميائية، الحسابات، ودراسة المواد')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- مادة: رسم هندسي -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-166</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-compass-drafting text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">رسم هندسي (Engineering Drawing)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">الاسقاط الهندسي، الأبعاد، القطاعات، والرسم باستخدام الأدوات الهندسية وبرمجيات CAD.</p>
+                    </div>
+                    <button onclick="openCourseModal('رسم هندسي', 'ES-166', 'الإسقاط الهندسي، الأبعاد، والمساقط الثلاثة')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- مادة: رياضة 1 -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-101</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-calculator text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">رياضة 1 (Calculus I)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">النهايات والاتصال، الاشتقاق وتطبيقاته، قواعد التفاضل المتقدمة والدوال المثلثية.</p>
+                    </div>
+                    <button onclick="openCourseModal('رياضة 1', 'ES-101', 'التفاضل، النهايات، والاتصال وتطبيقات المشتقات')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- مادة: رياضة 2 -->
+                <div class="glass-effect rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">ES-102</span>
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-square-root-variable text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">رياضة 2 (Calculus II)</h3>
+                        <p class="text-slate-400 text-sm mb-6 font-medium">التكامل بنوعيه (المحدد وغير المحدد)، تطبيقات التكامل، المتسلسلات والمتجهات.</p>
+                    </div>
+                    <button onclick="openCourseModal('رياضة 2', 'ES-102', 'التكامل المحدد وغير المحدد، والمتسلسلات')" class="w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
+                        <span>عرض الشروحات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عن المنظمة (About Section) -->
+    <section id="about" class="py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-emerald-400 font-bold text-sm tracking-wider uppercase block mb-3">رعاية منظمة GROW التطوعية</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mb-6 leading-tight">منظمة طلابية تسعى لتمكين طلاب الهندسة وتسهيل مسيرتهم الأكاديمية</h2>
+                    <p class="text-slate-300 font-medium leading-relaxed mb-6">
+                        تأسست منظمة **GROW** من قبل مجموعة من الطلاب المتميزين بهدف بناء مجتمع تعاوني متكامل. نحن نؤمن بأن المعرفة يجب أن تكون متاحة للجميع، ولذلك نقدم شروحات مجانية مبسطة وملفات دراسية دقيقة لكل مواد السنوات التحضيرية والتخصصية.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="glass-effect p-4 rounded-xl border border-slate-800">
+                            <span class="text-3xl font-black text-emerald-400 block mb-1">100%</span>
+                            <span class="text-xs text-slate-400 font-semibold">شروحات ومحتوى مجاني تماماً</span>
+                        </div>
+                        <div class="glass-effect p-4 rounded-xl border border-slate-800">
+                            <span class="text-3xl font-black text-emerald-400 block mb-1">6+</span>
+                            <span class="text-xs text-slate-400 font-semibold">مواد أساسية رئيسية بغطاء هندسي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect p-8 rounded-3xl border border-slate-800 relative">
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
+                    <h3 class="text-2xl font-bold text-white mb-4">قيمنا الجوهرية</h3>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white block">التعاون الطلابي:</strong>
+                                <span class="text-sm text-slate-400">مساعدة الزملاء وتقديم الدعم الأكاديمي المتبادل.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white block">الجودة والبساطة:</strong>
+                                <span class="text-sm text-slate-400">توصيل المعلومة المعقدة بطريقة سلسة وعصرية.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
+                            <div>
+                                <strong class="text-white block">العمل التطوعي:</strong>
+                                <span class="text-sm text-slate-400">نشر العلم كرسالة نبيلة دون أي مقابل مادي.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الانضمام للفريق (Join Section) -->
+    <section id="join" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-effect p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-transparent pointer-events-none"></div>
+                <h2 class="text-3xl font-black text-white mb-4">هل أنت متميز في المواد وتريد الانضمام لفريق GROW؟</h2>
+                <p class="text-slate-400 mb-8 font-medium max-w-xl mx-auto">انضم إلينا كمتطوع، شارك علمك، وساهم في مساعدة زملائك الطلاب في مسيرتهم الهندسية.</p>
+                <form onsubmit="handleJoinSubmit(event)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="text" id="volunteerName" placeholder="الاسم الكامل أو التخصص" required class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 text-sm">
+                    <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/20 text-sm whitespace-nowrap">
+                        قدم كمتطوع
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة (Footer) -->
+    <footer class="glass-effect border-t border-slate-800 py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 font-black text-base">G</div>
+                <span class="font-bold text-white tracking-wider">GROW</span>
+            </div>
+            <p class="text-slate-400 text-sm">جميع الحقوق محفوظة © 2026 - تحت رعاية منظمة GROW التطوعية.</p>
+            <div class="flex gap-4 text-slate-400 text-lg">
+                <a href="#" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- النافذة التفاعلية لعرض شروحات المادة (Modal) -->
+    <div id="courseModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-effect w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalContainer">
+            <button onclick="closeCourseModal()" class="absolute top-5 left-5 text-slate-400 hover:text-white w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="mb-6">
+                <span id="modalCode" class="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20 inline-block mb-3">رمز المادة</span>
+                <h3 id="modalTitle" class="text-2xl font-black text-white">اسم المادة</h3>
+                <p id="modalDesc" class="text-slate-400 text-sm mt-1 font-medium">تفاصيل المادة الدراسية والشروحات المتاحة.</p>
+            </div>
+            
+            <div class="space-y-3 mb-6">
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-pdf text-emerald-400 text-xl"></i>
+                        <div>
+                            <span class="text-white font-bold text-sm block">الملخصات والشيتات المعتمدة</span>
+                            <span class="text-xs text-slate-400">ملفات PDF شاملة للأسئلة والمسائل</span>
+                        </div>
+                    </div>
+                    <button onclick="showToast('تم بدء تحميل الملف بنجاح!')" class="bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-3 py-2 rounded-lg transition-all">تحميل</button>
+                </div>
+                
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-video text-emerald-400 text-xl"></i>
+                        <div>
+                            <span class="text-white font-bold text-sm block">المحاضرات المرئية (YouTube)</span>
+                            <span class="text-xs text-slate-400">شرح تفصيلي للمنهج باباً ببابه</span>
+                        </div>
+                    </div>
+                    <button onclick="showToast('جاري الانتقال إلى قائمة الفيديوهات...')" class="bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-3 py-2 rounded-lg transition-all">مشاهدة</button>
+                </div>
+            </div>
+
+            <button onclick="closeCourseModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl transition-all text-sm">
+                إغلاق النافذة
+            </button>
+        </div>
+    </div>
+
+    <!-- كود الجافاسكريبت للتفاعل والعرض -->
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3500);
+        }
+
+        function openCourseModal(title, code, desc) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalCode').textContent = code;
+            document.getElementById('modalDesc').textContent = desc;
+
+            const modal = document.getElementById('courseModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeCourseModal() {
+            const modal = document.getElementById('courseModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.add('opacity-0');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function handleJoinSubmit(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('volunteerName');
+            if(nameInput.value.trim() !== '') {
+                showToast(`شكراً لك ${nameInput.value}! تم تسجيل طلب تطوعك في GROW بنجاح.`);
+                nameInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
